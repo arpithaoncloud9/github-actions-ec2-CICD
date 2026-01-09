@@ -1,0 +1,34 @@
+name: Deploy to EC2
+
+on:
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Download build artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: build-output
+          path: build/
+
+      - name: Add SSH key
+        run: |
+          echo "${{ secrets.EC2_SSH_KEY }}" > key.pem
+          chmod 600 key.pem
+
+      - name: Copy files to EC2
+        run: |
+          scp -o StrictHostKeyChecking=no -i key.pem -r build/* \
+          ${{ secrets.EC2_USER }}@${{ secrets.EC2_HOST }}:/var/www/myapp/
+
+      - name: Restart app on EC2
+        run: |
+          ssh -o StrictHostKeyChecking=no -i key.pem \
+          ${{ secrets.EC2_USER }}@${{ secrets.EC2_HOST }} \
+          "pm2 restart all || pm2 start /var/www/myapp/index.js"
