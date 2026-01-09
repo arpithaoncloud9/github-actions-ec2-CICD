@@ -24,7 +24,7 @@ jobs:
 
       - name: Copy files to EC2
         run: |
-          scp -o StrictHostKeyChecking=no -i key.pem -r build/* \
+          scp -o StrictHostKeyChecking=no -i key.pem -r * \
           ${{ secrets.EC2_USER }}@${{ secrets.EC2_HOST }}:/var/www/myapp/
 
       - name: Restart app on EC2
