@@ -1,0 +1,24 @@
+{
+  "name": "github-actions-ec2-cicd",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest",
+    "build": "echo 'Build step placeholder'"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/arpithaoncloud9/github-actions-ec2-CICD.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/arpithaoncloud9/github-actions-ec2-CICD/issues"
+  },
+  "homepage": "https://github.com/arpithaoncloud9/github-actions-ec2-CICD#readme",
+  "devDependencies": {
+    "jest": "^30.2.0"
+  }
+}
