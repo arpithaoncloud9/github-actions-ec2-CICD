@@ -15,7 +15,7 @@ jobs:
         uses: actions/download-artifact@v4
         with:
           name: build-output
-          path: build/
+          path: .
 
       - name: Add SSH key
         run: |
