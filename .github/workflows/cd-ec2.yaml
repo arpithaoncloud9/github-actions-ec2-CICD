@@ -1,7 +1,10 @@
 name: Deploy to EC2
 
 on:
-  workflow_dispatch:
+  workflow_run:
+  workflow: ci.yaml
+  types:
+    - completed
 
 jobs:
   deploy:
