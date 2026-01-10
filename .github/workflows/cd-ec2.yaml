@@ -11,12 +11,14 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Download build artifact
-        uses: actions/download-artifact@v4
+      - name: Download build artifact from CI workflow
+        uses: dawidd6/action-download-artifact@v2
         with:
           workflow: ci.yml
+          workflow_conclusion: success
           name: build-output
           path: .
+          branch: main
 
       - name: Add SSH key
         run: |
