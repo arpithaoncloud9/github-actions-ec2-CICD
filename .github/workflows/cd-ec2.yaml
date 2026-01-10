@@ -14,6 +14,7 @@ jobs:
       - name: Download build artifact
         uses: actions/download-artifact@v4
         with:
+          workflow: ci.yml
           name: build-output
           path: .
 
