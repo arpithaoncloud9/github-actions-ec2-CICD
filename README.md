@@ -336,4 +336,4 @@ You should see your app running.
 - Built a fully automated CI/CD pipeline using GitHub Actions and AWS EC2
 - CI workflow runs tests, builds the app, and uploads optimized artifacts
 - CD workflow deploys to EC2 automatically with zero manual steps
-- Deployment is verified live via PM2, demonstrating production‑grade DevOps automation
+- Deployment is verified live via PM2, demonstrating production‑ready DevOps automation
